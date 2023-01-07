@@ -1,212 +1,34 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<base href="http://yeyuni.com/biaobai_aixinshu/" />
-<title>lammy</title>
+<style>
+/*--预设--*/ 
+body { padding:0px;margin: 0px; } 
+#lyrow, #lyrow input, #lyrow textarea { font-size:12px;font-family: 'Microsoft YaHei', '微软雅黑', MicrosoftJhengHei, '华文细黑', STHeiti, MingLiu; } 
+#lyrow { height:100vh;width: 100vw; } 
+#lyrow div { min-height: 18px;  } 
+#lyrow input, #lyrow textarea { border:rgb(235, 235, 235) 1px solid;border-radius: 3px;padding: 5px 8px;outline: 0; } 
+#lyrow input:hover, #lyrow textarea:hover { border: 1px solid #6bc1f2; } 
+/*--编辑--*/ 
+#lyrow .tb { padding:23px 0 0 23px;color:rgba(62, 237, 231, 1);font-size:25px;opacity:0.41; } 
+#lyrow .wb { padding:0 0 32px 27px;font-style:italic;color:rgba(0, 51, 113, 1);border-top:rgb(255, 255, 255, 1) solid 0 !important; } 
+#lyrow .link { color:rgba(14, 6, 161, 1);border-bottom:rgba(14, 27, 201, 1) solid 1px !important; } 
+#lyrow .v { padding:0 0 0 41px; } 
+#lyrow .fdg { padding:0 0 0 79px; } 
+#lyrow .video { width:179px !important;max-width:270px;padding:19px 0 0 0;height:142px !important; } 
 
-<link type="text/css" rel="stylesheet" href="css/default.css">
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/jscex.min.js"></script>
-<script type="text/javascript" src="js/jscex-parser.js"></script>
-<script type="text/javascript" src="js/jscex-jit.js"></script>
-<script type="text/javascript" src="js/jscex-builderbase.min.js"></script>
-<script type="text/javascript" src="js/jscex-async.min.js"></script>
-<script type="text/javascript" src="js/jscex-async-powerpack.min.js"></script>
-<script type="text/javascript" src="js/functions.js" charset="utf-8"></script>
-<script type="text/javascript" src="js/love.js" charset="utf-8"></script>
-<style type="text/css">
-<!--
-.STYLE1 {color: #666666}
--->
-</style></head>
-<body>
-<audio autoplay="autopaly">
-<source src="" type="audio/mp3" />
-</audio>
-<div id="main">
-<div id="error">本页面采用HTML5编辑，目前您的浏览器无法显示，请换成谷歌(<a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a href="http://firefox.com.cn/download/">Firefox</a>)浏览器，或者其他游览器的最新版本。</div>
-            <div id="wrap">
-                <div id="text">
-			        <div id="code">
-			        	<span class="say">亲爱的MS_Seng：</span><br>
-						<span class="say"> </span><br>
-                        <span class="say">　　爱可以简简单单，但不能随随便便，虽然我的微笑可以给任何人，但我的心只给你。
-你是我今生渡不过的劫，多看一眼就心软，拥抱一下就沦陷。</span><br>
+</style>
+<!--下载font-awesome.css图标包-->
+<!--https://www.58html.com/html/template/font-awesome.zip-->
+<link rel="stylesheet" href="https://www.58html.com/gui/css/font-awesome/css/font-awesome.css">
+<div id="lyrow">
 
-                        <span class="say"><span class="space"></span> -- Allen --</span>
-			        </div>
-                </div>
-                <div id="clock-box">
-                    Allen<span class="STYLE1"> 与 </span>MS_Seng <span class="STYLE1">已经相识了</span>
-                  <div id="clock"></div>
-              </div>
-                <canvas id="canvas" width="1100" height="680"></canvas>
-            </div>
-            
-        </div>
-    
-    <script>
-    </script>
-
-    <script>
-    (function(){
-        var canvas = $('#canvas');
-		
-        if (!canvas[0].getContext) {
-            $("#error").show();
-            return false;
-        }
-
-        var width = canvas.width();
-        var height = canvas.height();
         
-        canvas.attr("width", width);
-        canvas.attr("height", height);
-
-        var opts = {
-            seed: {
-                x: width / 2 - 20,
-                color: "rgb(190, 26, 37)",
-                scale: 2
-            },
-            branch: [
-                [535, 680, 570, 250, 500, 200, 30, 100, [
-                    [540, 500, 455, 417, 340, 400, 13, 100, [
-                        [450, 435, 434, 430, 394, 395, 2, 40]
-                    ]],
-                    [550, 445, 600, 356, 680, 345, 12, 100, [
-                        [578, 400, 648, 409, 661, 426, 3, 80]
-                    ]],
-                    [539, 281, 537, 248, 534, 217, 3, 40],
-                    [546, 397, 413, 247, 328, 244, 9, 80, [
-                        [427, 286, 383, 253, 371, 205, 2, 40],
-                        [498, 345, 435, 315, 395, 330, 4, 60]
-                    ]],
-                    [546, 357, 608, 252, 678, 221, 6, 100, [
-                        [590, 293, 646, 277, 648, 271, 2, 80]
-                    ]]
-                ]] 
-            ],
-            bloom: {
-                num: 700,
-                width: 1080,
-                height: 650,
-            },
-            footer: {
-                width: 1200,
-                height: 5,
-                speed: 10,
-            }
-        }
-
-        var tree = new Tree(canvas[0], width, height, opts);
-        var seed = tree.seed;
-        var foot = tree.footer;
-        var hold = 1;
-
-        canvas.click(function(e) {
-            var offset = canvas.offset(), x, y;
-            x = e.pageX - offset.left;
-            y = e.pageY - offset.top;
-            if (seed.hover(x, y)) {
-                hold = 0; 
-                canvas.unbind("click");
-                canvas.unbind("mousemove");
-                canvas.removeClass('hand');
-            }
-        }).mousemove(function(e){
-            var offset = canvas.offset(), x, y;
-            x = e.pageX - offset.left;
-            y = e.pageY - offset.top;
-            canvas.toggleClass('hand', seed.hover(x, y));
-        });
-
-        var seedAnimate = eval(Jscex.compile("async", function () {
-            seed.draw();
-            while (hold) {
-                $await(Jscex.Async.sleep(10));
-            }
-            while (seed.canScale()) {
-                seed.scale(0.95);
-                $await(Jscex.Async.sleep(10));
-            }
-            while (seed.canMove()) {
-                seed.move(0, 2);
-                foot.draw();
-                $await(Jscex.Async.sleep(10));
-            }
-        }));
-
-        var growAnimate = eval(Jscex.compile("async", function () {
-            do {
-    	        tree.grow();
-                $await(Jscex.Async.sleep(10));
-            } while (tree.canGrow());
-        }));
-
-        var flowAnimate = eval(Jscex.compile("async", function () {
-            do {
-    	        tree.flower(2);
-                $await(Jscex.Async.sleep(10));
-            } while (tree.canFlower());
-        }));
-
-        var moveAnimate = eval(Jscex.compile("async", function () {
-            tree.snapshot("p1", 240, 0, 610, 680);
-            while (tree.move("p1", 500, 0)) {
-                foot.draw();
-                $await(Jscex.Async.sleep(10));
-            }
-            foot.draw();
-            tree.snapshot("p2", 500, 0, 610, 680);
-
-            // 会有闪烁不得意这样做, (＞﹏＜)
-            canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
-            canvas.css("background", "#ffe");
-            $await(Jscex.Async.sleep(300));
-            canvas.css("background", "none");
-        }));
-
-        var jumpAnimate = eval(Jscex.compile("async", function () {
-            var ctx = tree.ctx;
-            while (true) {
-                tree.ctx.clearRect(0, 0, width, height);
-                tree.jump();
-                foot.draw();
-                $await(Jscex.Async.sleep(25));
-            }
-        }));
-
-        var textAnimate = eval(Jscex.compile("async", function () {
-		    var together = new Date();
-		    together.setFullYear(2022,08,01); 			//时间年月日
-		    together.setHours(-720);						//小时	
-		    together.setMinutes(0);					//分钟
-		    together.setSeconds(0);					//秒前一位
-		    together.setMilliseconds(2);				//秒第二位
-
-		    $("#code").show().typewriter();
-            $("#clock-box").fadeIn(500);
-            while (true) {
-                timeElapse(together);
-                $await(Jscex.Async.sleep(1000));
-            }
-        }));
-
-        var runAsync = eval(Jscex.compile("async", function () {
-            $await(seedAnimate());
-            $await(growAnimate());
-            $await(flowAnimate());
-            $await(moveAnimate());
-
-            textAnimate().start();
-
-            $await(jumpAnimate());
-        }));
-
-        runAsync().start();
-    })();
-    </script>
-<div style="display:none"><script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280799347'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1280799347%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script></div></body>
-</html>
+<div ></div>
+    <h1 class="tb">蓝梦云科技 Lammy Technology<br><br></h1>
+    <span class="wb">欢迎访问本网站。在这里，你可以获取我们最新发布的软件。若想加入我们，请联系：lammy2021@163.com 管理员：Allen 与 MC_Seng                      </span>
+    <span class="v"><br><br>    我们的最新软件发布于吾爱破解论坛：软件均为原创，未经允许，不可转载<br><br></span>
+    <a class="link" href="https://www.52pojie.cn/thread-1633748-1-1.html" target="_blank">简易画板--授课助手 V2.1 2022.12.4更新 （白板·简约风格）<br><br></a>
+    <a class="link" href="https://www.52pojie.cn/thread-1635251-1-1.html" target="_blank">Windows office 许可证误报不是正版修复<br><br></a>
+    <a class="link" href="https://www.52pojie.cn/thread-1634266-1-1.html" target="_blank">高考倒计时<br><br></a>
+    <a class="link" href="https://www.52pojie.cn/home.php?mod=space&amp;uid=1859166" target="_blank">访问我们的吾爱论坛主页</a>
+    <i class="fas fa-laugh-wink" data-font="fas fa-laugh-wink"></i>
+    <span ><br><br>微笑面对每一天：）</span>
+</div>
